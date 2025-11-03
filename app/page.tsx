@@ -1,14 +1,19 @@
-import { Button } from "@/components/ui/button";
-import { signIn } from "./actions/signin";
-import { signOut } from "./actions/signout";
 import { auth } from "@/auth";
+import PostList from "@/components/posts/post-list";
+import TopicCreateForm from "@/components/topics/TopicCreateForm";
+import { fetchTopPosts } from "@/lib/query/post";
 
-export default async function  Home() {
-  const session=await auth()
+export default async function Home() {
+  const session = await auth();
   return (
-    <div>
-      <h1>Home page</h1>
-     
+    <div className="grid grid-cols-4 gap-4 p-4">
+      <div className="col-span-3">
+        <h1 className="text-xl font-bold m-2">Top Posts</h1>
+        <PostList fetchData={fetchTopPosts} />
+      </div>
+      <div>
+        <TopicCreateForm />
+      </div>
     </div>
   );
 }

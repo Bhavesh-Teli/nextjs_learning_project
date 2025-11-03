@@ -1,5 +1,5 @@
 "use client";
-import { search } from "@/app/actions/search";
+import { search } from "@/actions/search";
 import { useSearchParams } from "next/navigation";
 import { Input } from "./ui/input";
 
